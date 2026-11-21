@@ -90,6 +90,11 @@ export class CreateUserPage {
     return readSaveResult(response);
   }
 
+  // A click on Save without waiting for an answer, for when the request is blocked.
+  async clickSave(): Promise<void> {
+    await this.saveButton.click();
+  }
+
   // A save confirms in a Success dialog; closing it opens the new user's edit page, which is
   // only read here, never saved. Returns the new user's id, from the edit route.
   async expectSavedAndOpened(user: NewAdminUser): Promise<number> {
