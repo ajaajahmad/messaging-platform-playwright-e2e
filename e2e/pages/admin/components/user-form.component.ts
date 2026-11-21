@@ -234,8 +234,8 @@ export class UserForm {
     await this.fillText(smppFieldId[field], value);
   }
 
-  // Ticks Enable SMPP unless it already is, then fills the SMPP fields. The fields take input
-  // before the box is ticked, and their maxlength cuts the username at 15 and the shortcode at 20.
+  // Ticks Enable SMPP unless it already is, then fills the SMPP fields. The fields stay locked
+  // until the box is ticked, and their maxlength cuts the username at 15 and the shortcode at 20.
   async enterSmpp(smpp: SmppSettings): Promise<void> {
     await this.tickEnableSmpp();
 

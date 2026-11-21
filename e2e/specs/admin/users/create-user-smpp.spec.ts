@@ -30,11 +30,7 @@ test.describe('Create User SMPP Configuration', () => {
     expect(editUserPage.userId()).toBe(user.id);
   });
 
-  // Known defect: all six SMPP fields take input while Enable SMPP is unticked, though the schema
-  // marks them disabled. This passes while the defect exists and fails once it's fixed: then remove
-  // test.fail.
   test('ADM-02 keeps the SMPP fields locked until Enable SMPP is ticked', async ({ createUserPage }) => {
-    test.fail(true, 'Staging lets the SMPP fields take input before Enable SMPP is ticked.');
     await createUserPage.open();
 
     await createUserPage.form.expectSmppEnabled(false);
